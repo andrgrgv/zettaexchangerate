@@ -1,0 +1,33 @@
+services:
+  postgres:
+    image: postgres:17-alpine
+    container_name: zetta-postgres
+    environment:
+      POSTGRES_DB: zetta_assignment
+      POSTGRES_USER: zetta
+      POSTGRES_PASSWORD: zetta_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U zetta -d zetta_assignment"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  app:
+    build: .
+    container_name: zetta-app
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/zetta_assignment
+      SPRING_DATASOURCE_USERNAME: zetta
+      SPRING_DATASOURCE_PASSWORD: zetta_password
+    ports:
+      - "8080:8080"
+
+volumes:
+  postgres-data:

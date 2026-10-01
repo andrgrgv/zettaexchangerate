@@ -1,0 +1,30 @@
+INSERT INTO clients (id)
+VALUES
+    ('CLIENT-001'),
+    ('CLIENT-002'),
+    ('CLIENT-003'),
+    ('CLIENT-004'),
+    ('CLIENT-005');
+
+INSERT INTO balances (client_id, currency, amount)
+VALUES
+    ('CLIENT-001', 'USD', 10000.0000),
+    ('CLIENT-001', 'EUR', 8000.0000),
+    ('CLIENT-001', 'GBP', 2500.0000),
+    ('CLIENT-001', 'CHF', 1500.0000),
+    ('CLIENT-002', 'GBP', 5000.0000),
+    ('CLIENT-002', 'USD', 3000.0000),
+    ('CLIENT-002', 'EUR', 2000.0000),
+    ('CLIENT-002', 'JPY', 750000.0000),
+    ('CLIENT-003', 'USD', 25000.0000),
+    ('CLIENT-003', 'EUR', 12000.0000),
+    ('CLIENT-003', 'CAD', 18000.0000),
+    ('CLIENT-003', 'AUD', 9000.0000),
+    ('CLIENT-004', 'EUR', 50000.0000),
+    ('CLIENT-004', 'CHF', 20000.0000),
+    ('CLIENT-004', 'GBP', 15000.0000),
+    ('CLIENT-004', 'USD', 10000.0000),
+    ('CLIENT-005', 'USD', 1000.0000),
+    ('CLIENT-005', 'EUR', 750.0000),
+    ('CLIENT-005', 'GBP', 500.0000),
+    ('CLIENT-005', 'PLN', 4000.0000);
